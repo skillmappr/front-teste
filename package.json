@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "cytoscape": "^3.26.0",
-    "neo4j-driver": "^5.14.0"
-  }
-}
