@@ -1,29 +1,3 @@
-// const neo4j = require('neo4j-driver');
-
-// const uri = 'neo4j+s://3d32b423.databases.neo4j.io'; // Substitua pelo URL do seu servidor Neo4j
-// const user = 'neo4j'; // Substitua pelo seu nome de usuário
-// const password = 'OWJn1NapdsRNvjT79PM56XYA6FLKqRnRJyO-jD6BCSo'; // Substitua pela sua senha
-
-// const driver = neo4j.driver(uri, neo4j.auth.basic(user, password));
-
-
-// const session = driver.session();
-
-// session
-//   .run('MATCH (n) RETURN n LIMIT 5')
-//   .then(result => {
-//     result.records.forEach(record => {
-//       console.log(record.get(0).properties);
-//     })
-//   })
-//   .catch(error => {
-//     console.error('Erro ao executar a consulta:', error);
-//   })
-//   .finally(() => {
-//     session.close();
-//     driver.close();
-//   });
-
 let neoViz;
 
 function draw() {
@@ -80,14 +54,31 @@ function draw() {
     },
 
     initialCypher:
-     // "MATCH (n)-[r]-(m) RETURN n, r, m"
-    //  "MATCH (n:BNCC_UnidadeDeEstudo)-[r1:POSSUI]->(e:BNCC_Habilidade) RETURN n AS node, r1 AS relationship, e AS target UNION MATCH (n:BNCC_UnidadeDeEstudo)<-[r2:PERTENCE]-(e:BNCC_Habilidade) RETURN n AS node, r2 AS relationship, e AS target"
-    // "MATCH p = (:BNCC_AreaDeConhecimento)-[:PERTENCE]-> () RETURN p;"
-"MATCH (eixo:SBC_Eixo)-[relacionamento]->(SBC_Conteudo) WHERE eixo.nome = 'Inovação e Empreendedorismo' RETURN eixo, relacionamento, SBC_Conteudo;"
+      // "MATCH (n)-[r]-(m) RETURN n, r, m"
+      //  "MATCH (n:BNCC_UnidadeDeEstudo)-[r1:POSSUI]->(e:BNCC_Habilidade) RETURN n AS node, r1 AS relationship, e AS target UNION MATCH (n:BNCC_UnidadeDeEstudo)<-[r2:PERTENCE]-(e:BNCC_Habilidade) RETURN n AS node, r2 AS relationship, e AS target"
+      // "MATCH p = (:BNCC_AreaDeConhecimento)-[:PERTENCE]-> () RETURN p;"
+      "MATCH (eixo:SBC_Eixo)-[relacionamento]->(SBC_Conteudo) WHERE eixo.nome = 'Inovação e Empreendedorismo' RETURN eixo, relacionamento, SBC_Conteudo;"
     //MATCH (a:SBC_CompetenciaGeralEgresso) RETURN a as Node, "CompetenciaGeralEgresso" as Type UNION MATCH (b:SBC_Conteudo) RETURN b as Node, "Conteudo" as Type UNION MATCH (c:SBC_Eixo) RETURN c as Node, "Eixo" as Type UNION MATCH (d:SBC_CompetenciaEspecificaEgresso) RETURN d as Node, "CompetenciaEspecificaEgresso" as Type UNION MATCH (e:SBC_CompetenciaDerivada) RETURN e as Node, "CompetenciaDerivada" as Type;
 
   };
 
   neoViz = new NeoVis.default(config);
   neoViz.render();
+
+  document.getElementById('viz').addEventListener('click', function (event) {
+    // Adicione aqui o código para lidar com o clique no elemento #viz
+    console.log('Div clicked');
+    showLeftPanel();
+  });
+
+  function showLeftPanel() {
+    const leftPanel = document.getElementById('left-panel');
+    leftPanel.style.display = 'block';
+  }
+
+  function hideLeftPanel() {
+    console.log('panel closed');
+    const leftPanel = document.getElementById('left-panel');
+    leftPanel.style.display = 'none';
+  }
 }
