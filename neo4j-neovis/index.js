@@ -48,6 +48,9 @@ function draw() {
       },
       SBC_Eixo: {
         label: "tipo",
+        tipo: "tipo",
+        descricao: "competenciaGeral",
+        nome: "nome",
       }
     },
     relationships: {
@@ -66,18 +69,19 @@ function draw() {
   neoViz.render();
 
   document.getElementById('viz').addEventListener('click', function (event) {
-    // Adicione aqui o código para lidar com o clique no elemento #viz
-    console.log('Div clicked');
     showLeftPanel();
   });
 
-  function showLeftPanel() {
+  document.getElementById('closePanel').addEventListener('click', function (event) {
+    hideLeftPanel();
+  });
+
+  function showLeftPanel(nodeData) {
     const leftPanel = document.getElementById('left-panel');
     leftPanel.style.display = 'block';
   }
 
   function hideLeftPanel() {
-    console.log('panel closed');
     const leftPanel = document.getElementById('left-panel');
     leftPanel.style.display = 'none';
   }

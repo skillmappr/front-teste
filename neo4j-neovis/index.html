@@ -12,7 +12,6 @@
       width: 100%;
       height: 100vh;
       background-color: #f5f5f5;
-      /* Cor de fundo */
       position: relative;
       overflow: hidden;
     }
@@ -25,9 +24,7 @@
 
     #viz .node {
       background-color: #3498db;
-      /* Cor do nó */
       color: #fff;
-      /* Cor do texto dentro do nó */
       border-radius: 5px;
       padding: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -36,14 +33,11 @@
     #viz .relationship {
       stroke-width: 2;
       stroke: #95a5a6;
-      /* Cor da linha de relação */
     }
 
     #viz .target {
       background-color: #e74c3c;
-      /* Cor do destino */
       color: #fff;
-      /* Cor do texto dentro do destino */
       border-radius: 5px;
       padding: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -51,10 +45,8 @@
 
     #viz .node.clicked {
       background-color: #e74c3c;
-      /* Cor do nó clicado */
     }
 
-    /* Estilo para o painel */
     #left-panel {
       display: none;
       position: fixed;
@@ -83,19 +75,37 @@
       border: none;
       cursor: pointer;
     }
+
+    .SBC_Eixo {
+      width: calc(20% - 10px);
+      /* 20% para cada botão e margem à direita para o espaçamento */
+      padding: 5px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      margin-right: 2px;
+      /* Espaçamento entre os botões */
+    }
+
+    .SBC_Eixo:hover {
+      background-color: #2980b9;
+    }
   </style>
 </head>
 
 <body onload="draw()">
+  <button id='SBC_Eixo_Inovacao' class="SBC_Eixo">Inovação e Empreendedorismo</button>
+  <button id='SBC_Eixo_Gerenciamento' class="SBC_Eixo">Gerenciamento de Sistemas Computacionais</button>
+  <button id='SBC_Eixo_Sistemas' class="SBC_Eixo">Desenvolvimento de Sistemas Computacionais</button>
+  <button id='SBC_Eixo_Fundamentos' class="SBC_Eixo">Fudamentos de Sistemas de Computação</button>
+  <button id='SBC_Eixo_Pessoal' class="SBC_Eixo">Desenvolvimento Pessoal e Profissional</button>
   <div id="viz" style="position: relative; width: 1800px; height: 900px; padding: auto; background-color: black;"></div>
   <div id="left-panel">
-    <label for="type">Tipo:</label>
-
-    <label for="description">Descrição:</label>
-
-    <label for="name">Nome:</label>
-
-    <button onclick="hideLeftPanel()">Fechar</button>
+    <label for="tipo">Tipo:</label>
+    <label for="descricao">Descrição:</label>
+    <label for="nome">Nome:</label>
+    <button id='closePanel'>Fechar</button>
   </div>
 </body>
 
