@@ -1,10 +1,8 @@
-
-
 let neoViz;
 
-function draw() {
+function draw(eixo) {
   const config = {
-    containerId: "viz",
+    containerId: 'viz',
     neo4j: {
       serverUrl: "neo4j://3d32b423.databases.neo4j.io",
       serverUser: "neo4j",
@@ -62,7 +60,7 @@ function draw() {
       // "MATCH (n)-[r]-(m) RETURN n, r, m"
       //  "MATCH (n:BNCC_UnidadeDeEstudo)-[r1:POSSUI]->(e:BNCC_Habilidade) RETURN n AS node, r1 AS relationship, e AS target UNION MATCH (n:BNCC_UnidadeDeEstudo)<-[r2:PERTENCE]-(e:BNCC_Habilidade) RETURN n AS node, r2 AS relationship, e AS target"
       // "MATCH p = (:BNCC_AreaDeConhecimento)-[:PERTENCE]-> () RETURN p;"
-      "MATCH (eixo:SBC_Eixo)-[relacionamento]->(SBC_Conteudo) WHERE eixo.nome = 'Inovação e Empreendedorismo' RETURN eixo, relacionamento, SBC_Conteudo;"
+      "MATCH (eixo:SBC_Eixo)-[relacionamento]->(SBC_Conteudo) WHERE eixo.nome = '" + eixo + "' RETURN eixo, relacionamento, SBC_Conteudo;"
     //MATCH (a:SBC_CompetenciaGeralEgresso) RETURN a as Node, "CompetenciaGeralEgresso" as Type UNION MATCH (b:SBC_Conteudo) RETURN b as Node, "Conteudo" as Type UNION MATCH (c:SBC_Eixo) RETURN c as Node, "Eixo" as Type UNION MATCH (d:SBC_CompetenciaEspecificaEgresso) RETURN d as Node, "CompetenciaEspecificaEgresso" as Type UNION MATCH (e:SBC_CompetenciaDerivada) RETURN e as Node, "CompetenciaDerivada" as Type;
 
   };
@@ -79,13 +77,39 @@ function draw() {
     showLeftPanel(nodeData);
   });
 
-  document.getElementById('viz').addEventListener('click', function (event) {
-    //showLeftPanel();
+  document.getElementById('SBC_Eixo_Inovacao').addEventListener('click', function (event) {
+    draw('Inovação e Empreendedorismo')
+  });
+
+  document.getElementById('SBC_Eixo_Gerenciamento').addEventListener('click', function (event) {
+    draw('Gerenciamento de Sistemas Computacionais')
+  });
+
+  document.getElementById('SBC_Eixo_Sistemas').addEventListener('click', function (event) {
+    draw('Desenvolvimento de Sistemas Computacionais')
+  });
+
+  document.getElementById('SBC_Eixo_Fundamentos').addEventListener('click', function (event) {
+    draw('Fudamentos de Sistemas de Computação')
+  });
+
+  document.getElementById('SBC_Eixo_Pessoal').addEventListener('click', function (event) {
+    draw('Desenvolvimento Pessoal e Profissional')
   });
 
   document.getElementById('closePanel').addEventListener('click', function (event) {
     hideLeftPanel();
   });
+
+  function hideDivs(divs) {
+    const div = document.getElementById(divs);
+    div.style.display = 'none';
+  }
+
+  function showDivs(divs) {
+    const div = document.getElementById(divs);
+    div.style.display = 'block';
+  }
 
   function showLeftPanel(nodeData) {
     const leftPanel = document.getElementById('left-panel');
