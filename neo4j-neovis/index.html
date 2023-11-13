@@ -91,6 +91,36 @@
     .SBC_Eixo:hover {
       background-color: #2980b9;
     }
+
+    .fields_panel {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .fields_panel label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      /* Adicionando negrito ao nome do campo */
+    }
+
+    .fields_panel input {
+      width: 100%;
+      padding: 5px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+    }
+
+    .fields_panel button {
+      width: 100%;
+      padding: 8px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
   </style>
 </head>
 
@@ -102,9 +132,9 @@
   <button id='SBC_Eixo_Pessoal' class="SBC_Eixo">Desenvolvimento Pessoal e Profissional</button>
   <div id="viz" style="position: relative; width: 1800px; height: 900px; padding: auto; background-color: black;"></div>
   <div id="left-panel">
-    <label for="tipo">Tipo:</label>
-    <label for="descricao">Descrição:</label>
-    <label for="nome">Nome:</label>
+    <label id="tipo" class="fields_panel">Tipo:</label>
+    <label id="descricao" class="fields_panel">Descrição:</label>
+    <label id="nome" class="fields_panel">Nome:</label>
     <button id='closePanel'>Fechar</button>
   </div>
 </body>

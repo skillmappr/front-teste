@@ -1,3 +1,5 @@
+
+
 let neoViz;
 
 function draw() {
@@ -14,7 +16,7 @@ function draw() {
     },
     labels: {
       BNCC_AreaDeConhecimento: {
-        label: "nome",
+        label: "tipo",
       },
       BNCC_CompetenciaEspecifica: {
         label: "tipo",
@@ -23,19 +25,19 @@ function draw() {
         label: "tipo",
       },
       BNCC_Componente: {
-        label: "nome",
+        label: "tipo",
       },
       BNCC_Habilidade: {
-        label: "codigo",
+        label: "tipo",
       },
       BNCC_HabilidadeDeComponente: {
         label: "tipo",
       },
       BNCC_UnidadeDeEstudo: {
-        label: "nome",
+        label: "tipo",
       },
       SBC_CompetenciaDerivada: {
-        label: "codigo",
+        label: "tipo",
       },
       SBC_CompetenciaEspecificaEgresso: {
         label: "tipo",
@@ -48,12 +50,12 @@ function draw() {
       },
       SBC_Eixo: {
         label: "tipo",
-        tipo: "tipo",
-        descricao: "competenciaGeral",
-        nome: "nome",
       }
     },
     relationships: {
+      INTERACTS: {
+        value: "weight"
+      }
     },
 
     initialCypher:
@@ -68,8 +70,17 @@ function draw() {
   neoViz = new NeoVis.default(config);
   neoViz.render();
 
+  // Register the clickNode event
+  neoViz.registerOnEvent('clickNode', function (nodeId) {
+    console.log("Node clicked: " + nodeId.node.raw.properties.nome);
+
+    var nodeData = buildNode(nodeId);
+
+    showLeftPanel(nodeData);
+  });
+
   document.getElementById('viz').addEventListener('click', function (event) {
-    showLeftPanel();
+    //showLeftPanel();
   });
 
   document.getElementById('closePanel').addEventListener('click', function (event) {
@@ -78,11 +89,105 @@ function draw() {
 
   function showLeftPanel(nodeData) {
     const leftPanel = document.getElementById('left-panel');
+    const tipo = document.getElementById('tipo');
+    const nome = document.getElementById('nome');
+    const descricao = document.getElementById('descricao');
+
+    var innerHTMLTipo = '';
+
+    if (nodeData.tipo != '')
+      innerHTMLTipo += '<label class="tipo" class="fields_panel">Tipo: ' + nodeData.tipo + '</label>';
+
+    tipo.innerHTML = innerHTMLTipo;
+
+    var innerHTMLDescricao = '';
+
+    if (nodeData.descricao != '')
+      innerHTMLDescricao += '<label class="descricao" class="fields_panel">Descrição: ' + nodeData.descricao + '</label>';
+
+    descricao.innerHTML = innerHTMLDescricao;
+
+    var innerHTMLNome = '';
+
+    if (nodeData.nome != '')
+      innerHTMLNome += '<label class="nome" class="fields_panel">Nome: ' + nodeData.nome + '</label>';
+
+    nome.innerHTML = innerHTMLNome;
+
     leftPanel.style.display = 'block';
   }
 
   function hideLeftPanel() {
     const leftPanel = document.getElementById('left-panel');
     leftPanel.style.display = 'none';
+  }
+
+  function buildNode(node) {
+    var obj = {};
+
+    switch (node.node.label) {
+      case 'SBC_Eixo':
+        obj.tipo = node.node.raw.properties.tipo;
+        obj.nome = node.node.raw.properties.nome;
+        obj.descricao = node.node.raw.properties.competenciaGeral;
+        break;
+      case 'SBC_Conteudo':
+        obj.tipo = node.node.raw.properties.tipo;
+        obj.nome = node.node.raw.properties.nome;
+        obj.descricao = '';
+        break;
+      case 'SBC_CompetenciaGeralEgresso':
+        obj.tipo = node.node.raw.properties.tipo;
+        obj.nome = '';
+        obj.descricao = node.node.raw.properties.descricao;
+        break;
+      case 'SBC_CompetenciaEspecificaEgresso':
+        obj.tipo = node.node.raw.properties.tipo;
+        obj.nome = '';
+        obj.descricao = node.node.raw.properties.descricao;
+        break;
+      case 'SBC_CompetenciaDerivada':
+        obj.tipo = node.node.raw.properties.tipo;
+        obj.nome = node.node.raw.properties.codigo;
+        obj.descricao = node.node.raw.properties.descricao;
+        break;
+      case 'BNCC_UnidadeDeEstudo':
+        obj.tipo = node.node.raw.properties.tipo;
+        obj.nome = node.node.raw.properties.nome;
+        obj.descricao = '';
+        break;
+      case 'BNCC_HabilidadeDeComponente':
+        obj.tipo = node.node.raw.properties.tipo;
+        obj.nome = node.node.raw.properties.codigo;
+        obj.descricao = node.node.raw.properties.descricao;
+        break;
+      case 'BNCC_Habilidade':
+        obj.tipo = node.node.raw.properties.tipo;
+        obj.nome = node.node.raw.properties.codigo;
+        obj.descricao = node.node.raw.properties.descricao;
+        break;
+      case 'BNCC_Componente':
+        obj.tipo = node.node.raw.properties.tipo;
+        obj.nome = node.node.raw.properties.nome;
+        obj.descricao = '';
+        break;
+      case 'BNCC_CompetenciaGeral':
+        obj.tipo = node.node.raw.properties.tipo;
+        obj.nome = '';
+        obj.descricao = node.node.raw.properties.descricao;
+        break;
+      case 'BNCC_CompetenciaEspecifica':
+        obj.tipo = node.node.raw.properties.tipo;
+        obj.nome = '';
+        obj.descricao = node.node.raw.properties.descricao;
+        break;
+      case 'BNCC_AreaDeConhecimento':
+        obj.tipo = node.node.raw.properties.tipo;
+        obj.nome = node.node.raw.properties.codigo;
+        obj.descricao = '';
+        break;
+    }
+
+    return obj
   }
 }
