@@ -5,12 +5,13 @@
   background-color: #6A52F6;
 }
 
-.buttonsTop {
+.buttonsBottom {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 8px;
 }
+
 .SBC_Eixo {
   width: calc 20%;
   /* 20% para cada botão e margem à direita para o espaçamento */
@@ -30,9 +31,15 @@
   background-color: #2980b9;
 }
 
-.teste{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 8px;
+.teste {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px;
+}
+
+
+.w3-btn,
+.w3-button {
+  color: #fff;
 }
