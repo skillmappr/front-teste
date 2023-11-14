@@ -1,0 +1,43 @@
+/* viz.css */
+
+#viz {
+    height: 85vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    margin: 8px;
+  }
+  
+  #viz .node,
+  #viz .relationship,
+  #viz .target {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  #viz .node {
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 5px;
+    padding: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  #viz .relationship {
+    stroke-width: 2;
+    stroke: #95a5a6;
+  }
+  
+  #viz .target {
+    background-color: #e74c3c;
+    color: #fff;
+    border-radius: 5px;
+    padding: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  #viz .node.clicked {
+    background-color: #e74c3c;
+  }

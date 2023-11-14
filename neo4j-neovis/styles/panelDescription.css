@@ -1,0 +1,61 @@
+/* panelDescription.css */
+
+.fields_panel {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .fields_panel label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    /* Adicionando negrito ao nome do campo */
+  }
+  
+  .fields_panel input {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+  
+  .fields_panel button {
+    width: 100%;
+    padding: 8px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  
+#left-panel {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #cdc6f5;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+  
+  #left-panel input {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+  
+  #left-panel button {
+    width: 100%;
+    padding: 8px;
+    background-color: #988aed;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
