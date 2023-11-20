@@ -4,7 +4,7 @@
     border: 8px solid #f3f3f3;
     border: 8px solid #f3f3f3;
     border-radius: 50%;
-    border-top: 8px solid #3498db;
+    border-top: 8px solid #2c2a4a;
     width: 60px;
     height: 60px;
     -webkit-animation: spin 2s linear infinite;
@@ -40,7 +40,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #6A52F6;
+    background-color: #4f518c;
     position: fixed;
     top: 50%;
     left: 50%;

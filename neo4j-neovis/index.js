@@ -69,6 +69,7 @@ function draw(eixo) {
 
     neoViz = new NeoVis.default(config);
     neoViz.render();
+   
     // Register the clickNode event
     neoViz.registerOnEvent('clickNode', function (nodeId) {
       console.log("Node clicked: " + nodeId.node.raw.properties.nome);
@@ -81,6 +82,7 @@ function draw(eixo) {
   }).then(() => {
     setTimeout(() => {
       EnableLoading()
+       neoViz.network.fit()
     }, 2000)
   })
 

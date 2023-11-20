@@ -2,7 +2,7 @@
 
 .body {
   overflow: hidden;
-  background-color: #6A52F6;
+  background-color: #4f518c;
 }
 
 .buttonsBottom {
@@ -16,7 +16,7 @@
   width: calc 20%;
   /* 20% para cada botão e margem à direita para o espaçamento */
   margin: 10px;
-  background-color: #988aed;
+  background-color: #907ad6;
   color: #fff;
   border: none;
   cursor: pointer;
