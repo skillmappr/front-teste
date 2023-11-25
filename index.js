@@ -89,7 +89,7 @@ function draw(eixo) {
 }
 
 function EnableLoading() {
-  var vizElement = document.getElementById("viz");
+  var vizElement = document.getElementById("all");
   if (vizElement.style.display == "none")
     vizElement.style.display = "block"
   else
