@@ -7,24 +7,24 @@
 }
 
 .buttonsBottom {
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: center;
-  margin: 8px;
+  margin: 5px;
+  
 }
 
 .SBC_Eixo {
   width: calc 20%;
   /* 20% para cada botão e margem à direita para o espaçamento */
-  margin: 10px;
+  margin: 1em;
   background-color: #907ad6;
   color: #fff;
   border: none;
   cursor: pointer;
-  margin-right: 5px;
-  font-size: 16px;
-  padding: 10px 20px;
-  border-radius: 5px;
+  font-size: 1em;
+  padding: 1em 1em;
+  border-radius: 1em;
   transition: background-color 0.3s ease;
 }
 
@@ -36,7 +36,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 8px;
+  margin: 8em;
 }
 
 

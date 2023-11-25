@@ -34,7 +34,7 @@
   }
   
   #loading {
-    width: 100%;
+    width: 100em;
     height: 100vh;
     position: relative;
     overflow: hidden;

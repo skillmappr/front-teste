@@ -2,13 +2,13 @@
 @charset  "UTF-8";
 
 #viz {
-    height: 82vh;
+    height: 50em;
     width: 99%;
     position: relative;
     overflow: hidden;
     display: flex;
     background-color: black;
-    margin: 8px;
+    margin: 1em;
   }
   
   #viz .target {
@@ -18,7 +18,7 @@
   #viz .target {
     background-color: #e74c3c;
     color: #fff;
-    border-radius: 5px;
+    border-radius: 2em;
     padding: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
