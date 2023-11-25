@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "angular": "^1.8.3",
-    "cytoscape": "^3.26.0",
-    "neo4j-driver": "^5.14.0"
-  }
-}

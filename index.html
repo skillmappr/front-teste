@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/styles/loader.css">
+  <link rel="stylesheet" type="text/css" href="/styles/panelDescription.css">
+  <link rel="stylesheet" type="text/css" href="/styles/viz.css">
+  <link rel="stylesheet" type="text/css" href="/styles/styles.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://unpkg.com/neovis.js@2.0.2"></script>
+  <script src="./index.js"></script>
+  <title>SkillMappr</title>
+</head>
+
+<body onload="draw('Inovação e Empreendedorismo'); addListeners()" class="body">
+  <!-- <div class="teste">
+    <button class="w3-bar-item w3-button">Início</button>
+    <button class="w3-bar-item w3-button">???</button>
+    <button class="w3-bar-item w3-button">Sobre</button>
+  </div> -->
+  <div class="buttonsBottom">
+    <button id='SBC_Eixo_Inovacao' class="SBC_Eixo">Inovação e Empreendedorismo </button>
+    <button id='SBC_Eixo_Gerenciamento' class="SBC_Eixo">Gerenciamento de Sistemas Computacionais</button>
+    <button id='SBC_Eixo_Sistemas' class="SBC_Eixo">Desenvolvimento de Sistemas Computacionais</button>
+    <button id='SBC_Eixo_Fundamentos' class="SBC_Eixo">Fudamentos de Sistemas de Computação</button>
+    <button id='SBC_Eixo_Pessoal' class="SBC_Eixo">Desenvolvimento Pessoal e Profissional</button>
+  </div>
+  <div id="loading" style="display: none;">
+    <div class="loader">
+    </div>
+  </div>
+  <div id="viz" class="viz" style="display: block;"></div>
+  <div id="left-panel" class="left-panel">
+    <label id="tipo" class="fields_panel">Tipo:</label>
+    <label id="descricao" class="fields_panel">Descrição:</label>
+    <label id="nome" class="fields_panel">Nome:</label>
+    <button id='closePanel'>Fechar</button>
+  </div>
+
+</body>
+
+</html>
