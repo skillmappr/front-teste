@@ -1,4 +1,5 @@
 /* styles.css */
+@import url(styles.css);
 
 .body {
   overflow: hidden;
