@@ -5,6 +5,8 @@
   overflow: hidden;
   background-color: #4f518c;
   line-height: normal;
+  margin: 1em;
+  margin-right: 2em;
 }
 
 .buttonsBottom {
@@ -16,7 +18,11 @@
 }
 
 .all{
-  display: flex;
+  display: block;
+}
+
+element.style {
+  margin: 10px;
 }
 
 .SBC_Eixo {
