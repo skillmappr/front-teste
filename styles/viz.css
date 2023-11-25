@@ -3,12 +3,12 @@
 
 #viz {
     height: 50em;
-    width: 100em;
+    width: 100%;
     position: relative;
     overflow: hidden;
     display: flex;
     background-color: black;
-    margin-left: 24em;
+    margin: 1em;
   }
   
   #viz .target {
