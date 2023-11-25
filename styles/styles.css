@@ -10,23 +10,20 @@
 }
 
 .buttonsBottom {
-  display: block;
-  align-items: center;
   display: flex;
   justify-content: center;
-  margin: 5px;
+  max-width: 100%;
+  line-height: normal;
+  margin: 1em; /* Usei em como unidade relativa */
+  flex-wrap: wrap;
 }
 
 .all{
   display: block;
 }
 
-element.style {
-  margin: 10px;
-}
-
 .SBC_Eixo {
-  width: calc 20em;
+  width: 20em;
   /* 20% para cada botão e margem à direita para o espaçamento */
   margin: 1em;
   background-color: #907ad6;
