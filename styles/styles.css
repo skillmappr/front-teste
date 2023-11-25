@@ -4,24 +4,33 @@
 .body {
   overflow: hidden;
   background-color: #4f518c;
+  max-width: 100%;
+  line-height: normal;
 }
 
 .buttonsBottom {
-  display: block;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   margin: 5px;
+  align-items: flex-start;
+}
+
+.all{
+  display: flex;
+  align-items: flex-start;
+  height: 100%; /* Defina a altura do contêiner pai */
 }
 
 .SBC_Eixo {
-  width: calc 20%;
+  width: calc 20em;
   /* 20% para cada botão e margem à direita para o espaçamento */
   margin: 1em;
   background-color: #907ad6;
   color: #fff;
   border: none;
   cursor: pointer;
-  font-size: 1em;
+  font-size: 13px;
   padding: 1em 1em;
   border-radius: 1em;
   transition: background-color 0.3s ease;
@@ -30,15 +39,6 @@
 .SBC_Eixo:hover {
   background-color: #2980b9;
 }
-
-.teste {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 8em;
-}
-
-
 .w3-btn,
 .w3-button {
   color: #fff;
